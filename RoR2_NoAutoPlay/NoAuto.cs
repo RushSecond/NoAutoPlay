@@ -30,9 +30,6 @@ namespace NoAutoPlay
             R2API.Utils.CommandHelper.AddToConsoleWhenReady();
 
             SetAllProcs();
-
-
-
         }
 
         private static void SetAllProcs()
@@ -76,20 +73,6 @@ namespace NoAutoPlay
         {
             CustomConfigFile.Reload();
             SetAllProcs();
-        }
-
-        [ConCommand(commandName = "FireworkProc", flags = ConVarFlags.ExecuteOnServer, helpText = "Set's the proc coeff of fireworks")]
-        private static void FireworkProc(ConCommandArgs args)
-        {
-            float? fireworkProcCoeff = args.TryGetArgFloat(0);
-            if (fireworkProcCoeff.HasValue)
-            {
-                SetFireworkProc((float)fireworkProcCoeff);
-            }
-            else
-            {
-                Debug.LogError("Couldn't parse the firework proc coefficient");
-            }
         }
 
         private static void SetFireworkProc(float coeff)
